@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>GSAP</title>
+  </head>
+  <body>
+    <h1>Engineering For Tomorrow</h1>
+    <button id="cta">Watch Here</button>
+
+    <div class="panel">
+      <img id="photo" src="https://picsum.photos/500/400" alt="" />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
+        delectus?
+      </p>
+      <div class="box"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script>
+      document.getElementById('cta').addEventListener('click', () => {
+        TweenMax.to('.panel', 1, {
+          scaleY: 1,
+          height: '100vh',
+          ease: Circ.easeOut
+        });
+
+        TweenMax.to('#photo', 1, {
+          opacity: 1,
+          y: 0,
+          delay: 0.5,
+          ease: Back.easeOut.config(1.7)
+        });
+
+        TweenMax.to('p', 1, { opacity: 1, y: 20, delay: 0.7 });
+
+        TweenMax.to('.box', 3, {
+          opacity: 1,
+          scale: 1,
+          ease: Elastic.easeOut.config(1, 0.3)
+        });
+      });
+    </script>
+  </body>
+</html>
